@@ -1,3 +1,4 @@
+#github
 name: BMI application workflow
 on:
   pull_request:
