@@ -38,8 +38,6 @@ jobs:
       - name: Run tests
         run: mvn --batch-mode --update-snapshots verify
 
-      - name: Run package
-        run: mvn package
 
   docker-build:
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -73,7 +71,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
+      
+      - name: Run package
+        run: mvn package
+      
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
