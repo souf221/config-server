@@ -39,7 +39,7 @@ jobs:
         run: mvn --batch-mode --update-snapshots verify
 
       - name: Run package
-        run: mvn build
+        run: mvn package
 
   docker-build:
     if: ${{ github.ref == 'refs/heads/main' }}
